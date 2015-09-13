@@ -1,0 +1,38 @@
+@(form: Form[(String,String)])(implicit flash: Flash)
+
+@main("Play2 登录示例") {
+
+    <h1>登录示例 - 登录</h1>
+
+    <p>请输入用户名和密码</p>
+
+    @helper.form(routes.Authentication.authenticate) {
+        
+        @form.globalError.map { error =>
+            <p class="error">
+                @error.message
+            </p>
+        }
+        
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+        
+        <p>
+            <input type="email" name="email" placeholder="邮箱" id="email" value="@form("email").value">
+        </p>
+        <p>
+            <input type="password" name="password" id="password" placeholder="密码">
+        </p>
+        <p>
+            <button type="submit" id="loginbutton">登录</button>
+        </p>
+        
+    }
+    
+    <p class="note">
+        测试账号 <em>noah1@@example.com</em> 密码 <em>test</em> .
+    </p>
+}

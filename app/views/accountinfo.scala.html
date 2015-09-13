@@ -1,0 +1,14 @@
+@(user: models.User)
+
+@main("登录示例 - 账号信息") {
+
+    <h1>登录示例 - 账号信息</h1>
+
+    <p>当前账号信息 @user.name / @user.email</p>
+
+    <ul>
+      <li><a href="@routes.Authentication.logout">登出</a></li>
+      <li><a href="@routes.AccountInfo.index">账号信息</a></li>
+    </ul>
+
+}
